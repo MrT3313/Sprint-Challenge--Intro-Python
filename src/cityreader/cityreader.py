@@ -1,6 +1,18 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+class City:
+  def __init__(self,name, lat, lon):
+    self.name = name
+    self.lat = lat
+    self.lon = lon
+
+  def __str__(self):
+    output = ''
+    output += f'-*- CITY CLASS -*-\n'
+    output += f'{self.name} is located at a LAT of {self.lat} and a LONG of {self.lon}'
+
+    return output
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -17,10 +29,31 @@
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
+    # TODO Implement the functionality to read from the 'cities.csv' file
+    # For each city record, create a new City instance and add it to the 
+    # `cities` list
+
+    cities_csv = open('src/cityreader/cities.csv', 'r')
+    print(cities_csv)
     
+    for entry in cities_csv:
+        # NOTE 
+        # 1 # Column Headers [city,state_name,county_name,lat,lng,population,density,timezone,zips]
+        print('IMPORTED ENTRY: ', entry)
+
+        splitEntry = entry.split(',')
+        print('SPLIT ENTRY:', splitEntry)
+
+        print('CITY: ',splitEntry[0])
+        print('LAT: ',splitEntry[3])
+        print('LON: ',splitEntry[4])
+
+        newCity = City(splitEntry[0],splitEntry[3],splitEntry[4])
+        print(newCity)
+
+        cities.append(newCity)
+
+    print(cities)
     return cities
 
 cityreader(cities)
