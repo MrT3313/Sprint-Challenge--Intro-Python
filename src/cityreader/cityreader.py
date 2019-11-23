@@ -1,6 +1,8 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
+import csv
+
 class City:
   def __init__(self,name, lat, lon):
     self.name = name
@@ -28,33 +30,51 @@ class City:
 # should not be loaded into a City object.
 cities = []
 
-def cityreader(cities=[]):
+# V1 -- was working...now its not
+# def cityreader(cities=[]):
     # TODO Implement the functionality to read from the 'cities.csv' file
     # For each city record, create a new City instance and add it to the 
     # `cities` list
 
-    cities_csv = open('src/cityreader/cities.csv', 'r')
-    print(cities_csv)
+    # cities_csv = open('src/cityreader/cities.csv', 'r')
+    # print(cities_csv)
     
+    # for entry in cities_csv:
+    #     # NOTE 
+    #     # 1 # Column Headers [city,state_name,county_name,lat,lng,population,density,timezone,zips]
+    #     print('IMPORTED ENTRY: ', entry)
+
+    #     splitEntry = entry.split(',')
+    #     print('SPLIT ENTRY:', splitEntry)
+
+    #     print('CITY: ',splitEntry[0])
+    #     print('LAT: ',splitEntry[3])
+    #     print('LON: ',splitEntry[4])
+
+    #     newCity = City(splitEntry[0],splitEntry[3],splitEntry[4])
+    #     print(newCity)
+
+    #     cities.append(newCity)
+
+    # print(cities)
+    # return cities
+
+#V2
+def cityreader(cities=[]):
+  # TODO Implement the functionality to read from the 'cities.csv' file
+  # For each city record, create a new City instance and add it to the 
+  # `cities` list
+    
+  # with open('src/cityreader/cities.csv', 'r') as import_cities:
+  with open('/Users/mrt/Documents/Mr.T/Lambda/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv', 'r') as import_cities:
+    cities_csv = csv.reader(import_cities)
+    next(cities_csv)
     for entry in cities_csv:
-        # NOTE 
-        # 1 # Column Headers [city,state_name,county_name,lat,lng,population,density,timezone,zips]
-        print('IMPORTED ENTRY: ', entry)
+      newCity = City(entry[0],entry[3],entry[4])
+      cities.append(newCity)
 
-        splitEntry = entry.split(',')
-        print('SPLIT ENTRY:', splitEntry)
+  return cities
 
-        print('CITY: ',splitEntry[0])
-        print('LAT: ',splitEntry[3])
-        print('LON: ',splitEntry[4])
-
-        newCity = City(splitEntry[0],splitEntry[3],splitEntry[4])
-        print(newCity)
-
-        cities.append(newCity)
-
-    print(cities)
-    return cities
 
 cityreader(cities)
 
@@ -91,14 +111,14 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
+# # TODO Get latitude and longitude values from the user
 
-def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-  # within will hold the cities that fall within the specified region
-  within = []
+# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+#   # within will hold the cities that fall within the specified region
+#   within = []
 
-  # TODO Ensure that the lat and lon valuse are all floats
-  # Go through each city and check to see if it falls within 
-  # the specified coordinates.
+#   # TODO Ensure that the lat and lon valuse are all floats
+#   # Go through each city and check to see if it falls within 
+#   # the specified coordinates.
 
-  return within
+#   return within

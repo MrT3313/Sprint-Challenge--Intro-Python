@@ -36,7 +36,7 @@ class GroundVehicle(Vehicle):
 
     def __str__(self):
         output = ''
-        output += f'-*- GROUND VEHICLE CLASS -*- \n'
+        output += f'-*- GROUND VEHICLE CLASS -*-\n'
         output += f'A ground vehicle typically has {self.num_wheels} wheels'
 
         return output
