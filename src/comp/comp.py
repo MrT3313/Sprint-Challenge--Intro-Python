@@ -21,8 +21,8 @@ humans = [
     Human("Harrison", 12),
     Human("Igon", 41),
     Human("David", 31),
-    Human("dug", 31),
-    Human("donald", 31),
+    # Human("dug", 31),
+    # Human("donald", 31),
 ]
 
 # Write a list comprehension that creates a list of names of everyone
