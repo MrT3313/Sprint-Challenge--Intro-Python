@@ -18,5 +18,26 @@
 #
 # Put a comment noting which class is the base class
 
-# -- INITIAL COMMIT -- #
-# -- INITIAL COMMIT -- #
+# 1 # BASE CLASS --> Vehicle
+class Vehicle:
+    pass
+
+# 1.1 # GROUND VEHICLE
+class GroundVehicle(Vehicle):
+    pass
+
+class Car(GroundVehicle):
+    pass
+
+class Motorcycle(GroundVehicle):
+    pass
+
+# 1.2 # FLIGHT VEHICLE
+class  FlightVehicle(Vehicle):
+    pass
+
+class Starship(FlightVehicle):
+    pass
+
+class Airplane(FlightVehicle):
+    pass
