@@ -24,6 +24,10 @@ class Vehicle:
 
 # 1.1 # GROUND VEHICLE
 class GroundVehicle(Vehicle):
+    # V1
+    #pass
+
+    #V2
     def __init__(self, num_wheels=4):
         self.num_wheels = num_wheels
 
